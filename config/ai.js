@@ -1,7 +1,7 @@
 const OpenAI = require('openai');
 
 const openai = new OpenAI({
-	apiKey: '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', // This is also the default, can be omitted
+	apiKey: process.env.AI_API_KEY, // This is also the default, can be omitted
 });
 
 module.exports = openai;
