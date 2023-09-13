@@ -43,28 +43,51 @@ configuration variables. Here's how to set it up:
 
 2. Define the following environment variables in your `.env` file:
 
-   - `PORT`: The port on which the backend server will run (e.g., `PORT=3000`).
+- `NODE_ENV`: The environment mode for your application (e.g.,
+  `NODE_ENV=development`).
 
-   - `MONGODB_URI`: The MongoDB connection string for your database.
+- `SITE_URL`: The URL of your site (e.g., `SITE_URL=http://localhost:8000`).
 
-   - `CLOUDINARY_CLOUD_NAME`: Your Cloudinary cloud name.
+- `DOMAIN`: The domain name and port (e.g., `DOMAIN=localhost:8000`).
 
-   - `CLOUDINARY_API_KEY`: Your Cloudinary API key.
+- `PORT`: The port on which the backend server will run (e.g.,
+  `PORT=your-port`).
 
-   - `CLOUDINARY_API_SECRET`: Your Cloudinary API secret.
+- `MONGODB_URI`: The MongoDB connection URI for your database (e.g.,
+  `MONGODB_URI=mongo-atlas-uri`).
 
-   - `GOOGLE_CLIENT_ID`: Your Google OAuth 2.0 client ID.
+- `JWT_ACCESS_TOKEN`: Your JWT access token for authentication (e.g.,
+  `JWT_ACCESS_TOKEN=your-jwt-access-token`).
 
-   - `GOOGLE_CLIENT_SECRET`: Your Google OAuth 2.0 client secret.
+- `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`:
+  Configuration for Cloudinary integration (e.g.,
+  `CLOUDINARY_CLOUD_NAME=your-cloud-name`, `CLOUDINARY_API_KEY=your-api-key`,
+  `CLOUDINARY_API_SECRET=your-api-secret`).
 
-   - `YOUTUBE_API_KEY`: Your YouTube Data API key.
+- `GOOGLE_CREDENTIAL_CLIENT_ID`, `GOOGLE_CREDENTIAL_CLIENT_SECRET`,
+  `GOOGLE_CREDENTIAL_CALLBACK_URL`: OAuth 2.0 credentials for Google
+  authentication (e.g., `GOOGLE_CREDENTIAL_CLIENT_ID=your-client-id`,
+  `GOOGLE_CREDENTIAL_CLIENT_SECRET=your-client-secret`,
+  `GOOGLE_CREDENTIAL_CALLBACK_URL=your-callback-url`).
 
-   - `OPENAI_API_KEY`: Your OpenAI API key.
+- `NODEMAILER_EMAIL`, `NODEMAILER_PASSWORD`: Configuration for Nodemailer (e.g.,
+  `NODEMAILER_EMAIL=your-nodemailer-email`,
+  `NODEMAILER_PASSWORD=your-nodemailer-password`).
 
-   - `[Other Variables]`: Include any other environment-specific variables your
-     backend requires.
+- `BCRYPT_SALT_ROUNDS`: The number of salt rounds for bcrypt password hashing
+  (e.g., `BCRYPT_SALT_ROUNDS=10`).
+
+- `OPEN_AI_ORGANIZATION_ID`, `AI_API_KEY`: OpenAI organization ID and API key
+  (e.g., `OPEN_AI_ORGANIZATION_ID=your-openai-org-id`,
+  `AI_API_KEY=your-openai-api-key`).
 
 3. Save the `.env` file.
+
+Make sure to replace `your-port`, `mongo-atlas-uri`, `your-jwt-access-token`,
+`your-cloud-name`, `your-api-key`, `your-api-secret`, `your-client-id`,
+`your-client-secret`, `your-callback-url`, `your-nodemailer-email`,
+`your-nodemailer-password`, `10`, `your-openai-org-id`, and
+`your-openai-api-key` with your actual configuration values.
 
 Make sure to keep your `.env` file secure and never commit it to version
 control. It should contain sensitive information that should not be exposed.
