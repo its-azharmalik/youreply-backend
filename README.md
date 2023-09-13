@@ -74,16 +74,23 @@ control. It should contain sensitive information that should not be exposed.
 Here's an example of what your `.env` file might look like:
 
 ```env
-PORT=3000
-MONGODB_URI=mongodb://localhost/your-database
+NODE_ENV=devlopment
+SITE_URL=your-site-url(http://localhost:8000)
+DOMAIN=localhost:8000
+PORT=your-port
+MONGODB_URI=mongo-atlas-uri
+JWT_ACCESS_TOKEN=your-jwt-access-token
 CLOUDINARY_CLOUD_NAME=your-cloud-name
 CLOUDINARY_API_KEY=your-api-key
 CLOUDINARY_API_SECRET=your-api-secret
-GOOGLE_CLIENT_ID=your-client-id
-GOOGLE_CLIENT_SECRET=your-client-secret
-YOUTUBE_API_KEY=your-youtube-api-key
-OPENAI_API_KEY=your-openai-api-key
-
+GOOGLE_CREDENTIAL_CLIENT_ID=your-client-id
+GOOGLE_CREDENTIAL_CLIENT_SECRET=your-client-secret
+GOOGLE_CREDENTIAL_CALLBACK_URL=your-callback-url
+NODEMAILER_EMAIL=your-nodemailer-email
+NODEMAILER_PASSWORD=your-nodemailer-password
+BCRYPT_SALT_ROUNDS=10
+OPEN_AI_ORGANIZATION_ID=your-openai-org-id
+AI_API_KEY=your-openai-api-key
 ```
 
 ## Running the Development Server
