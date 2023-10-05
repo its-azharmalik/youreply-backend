@@ -1,0 +1,9 @@
+steps:
+  - name: 'gcr.io/youreply/github.com/its-azharmalik/youreply-backend'
+    args:
+      [
+        'build',
+        '-t',
+        'gcr.io/youreply/github.com/its-azharmalik/youreply-backend:$COMMIT_SHA',
+        '.',
+      ]
