@@ -1,1 +1,5 @@
-
+steps:
+- name: 'gcr.io/cloud-builder/docker'
+  args: ['build', '-t', 'gcr.io/youreply/github.com/its-azharmalik/youreply-backend:$COMMIT_SHA', '.']
+- name: 'gcr.io/cloud-builder/docker'
+  args: ['push', 'gcr.io/youreply/github.com/its-azharmalik/youreply-backend:$COMMIT_SHA', '.']
