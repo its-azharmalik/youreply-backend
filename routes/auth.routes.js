@@ -26,7 +26,7 @@ router.get(
 	'/google/redirect',
 	passport.authenticate('google', {
 		failureRedirect:
-			process.env.NODE_ENV == 'production'
+			process.env.NODE_ENV == 'development'
 				? process.env.SITE_URL + '/login/failure'
 				: 'http://localhost:3000/login/failure',
 	}),
@@ -48,7 +48,7 @@ router.get(
 			// secure: process.env.NODE_ENV == 'production' ? true : false,
 		});
 		res.redirect(
-			process.env.NODE_ENV == 'production'
+			process.env.NODE_ENV == 'development'
 				? process.env.SITE_URL + '/login/success'
 				: 'http://localhost:3000/login/success'
 		);
