@@ -46,7 +46,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.get('/', async (req, res) => {
-	res.json('welcome home');
+	res.json('welcome home bhai');
 });
 app.use('/api', router);
 
