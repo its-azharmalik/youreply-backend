@@ -6,6 +6,7 @@ const {
 	googleController,
 	replySingleComment,
 	publishReplyToYoutube,
+	fetchMyVideos,
 } = require('../controllers/youtube.controller');
 
 const router = express.Router();
@@ -38,6 +39,12 @@ router.post(
 	'/publishReplyToYoutbe',
 	// Write the function to generste single Reply
 	publishReplyToYoutube
+);
+
+router.get(
+	'/fetch-videos',
+	// Write the function to fetch videos from the video DATA API
+	fetchMyVideos
 );
 
 // router.get('/google', googleController);

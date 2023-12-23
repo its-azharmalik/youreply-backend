@@ -41,6 +41,52 @@ const youtubeService = async (videoID, accessToken, pageToken) => {
 	}
 };
 
+const fetchAllMyVideos = async (accessToken) => {
+	var oauth2Client = new google.auth.OAuth2(
+		process.env.GOOGLE_CREDENTIAL_CLIENT_ID,
+		process.env.GOOGLE_CREDENTIAL_CLIENT_SECRET,
+		process.env.GOOGLE_CREDENTIAL_CALLBACK_URL
+	);
+
+	oauth2Client.credentials = {
+		access_token: accessToken,
+	};
+
+	const youtube = google.youtube({
+		version: 'v3',
+		auth: oauth2Client,
+	});
+
+	let response = {
+		data: {},
+		err: 'NULL',
+	};
+
+	try {
+		const res = await youtube.search.list({
+			part: ['snippet'],
+			forMine: true,
+			type: 'video',
+		});
+		if (
+			res.status != 400 ||
+			res.status != 500 ||
+			res.status != 404 ||
+			res.status != 403
+		) {
+			response.data = res;
+			return response;
+		} else {
+			response.err = 'ERROR IN REPLYING TO COMMENT';
+			response.data = res;
+			return response;
+		}
+	} catch (error) {
+		response.err = error;
+		return error;
+	}
+};
+
 const replyToComment = async (commentId, commentText, accessToken) => {
 	var oauth2Client = new google.auth.OAuth2(
 		process.env.GOOGLE_CREDENTIAL_CLIENT_ID,
@@ -185,6 +231,7 @@ const generateReplyGPT = async (comment, prompt, user, words) => {
 
 module.exports = {
 	youtubeService,
+	fetchAllMyVideos,
 	commentRefactoring,
 	updateCommentsGPT,
 	generateReplyGPT,
