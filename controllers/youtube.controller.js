@@ -10,6 +10,7 @@ const {
 	updateCommentsGPT,
 	generateReplyGPT,
 	replyToComment,
+	fetchAllMyVideos,
 } = require('../services/youtube.services');
 const Comment = require('../models/Comments');
 const { User } = require('../models');
@@ -122,8 +123,33 @@ const publishReplyToYoutube = async (req, res) => {
 	}
 };
 
+const fetchMyVideos = async (req, res) => {
+	try {
+		const accessToken = req.headers.cookie.split(',')[1].split('=')[1];
+		// call the video fetching service from youtube services
+		const response = await fetchAllMyVideos(accessToken);
+		let videos = [];
+		response.data.data.items.forEach((video) => {
+			videos.push(video);
+		});
+		res.status(200).json({
+			message: e.states.success,
+			body: {
+				videos: videos,
+				response: response,
+			},
+		});
+	} catch (error) {
+		console.log('catch :', error);
+		res.status(500).json({
+			error: error.message,
+		});
+	}
+};
+
 module.exports = {
 	fetchCommentsRequest,
 	replySingleComment,
 	publishReplyToYoutube,
+	fetchMyVideos,
 };
