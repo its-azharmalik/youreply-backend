@@ -184,3 +184,8 @@ mywritingfrenzy@gmail.com.
 
 Thank you for contributing to the YouReply backend, and we look forward to
 working with you!
+
+## Updates --
+
+1. Added fetch videos feature
+2. Added domain youreply.tech
