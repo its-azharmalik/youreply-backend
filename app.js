@@ -24,6 +24,8 @@ const PORT = process.env.PORT;
 
 const app = express();
 
+app.use(cors());
+
 //middlewares
 app.use(morgan('dev'));
 app.use(cors());
