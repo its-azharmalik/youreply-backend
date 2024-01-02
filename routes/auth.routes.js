@@ -49,6 +49,7 @@ router.get(
 		});
 
 		res.redirect(
+			200,
 			process.env.NODE_ENV == 'production'
 				? process.env.SITE_URL + '/login/success'
 				: 'http://localhost:3000/login/success'
