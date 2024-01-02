@@ -34,7 +34,7 @@ router.get(
 		const authToken = req.headers['authorization'].split(' ')[1];
 		const token = req.headers['youtubeToken'].split(' ')[1];
 		// const refresh_token = req.headers['refreshToken'].split(' ')[1];
-		// console.log('Youtube Token : ', token);
+		console.log('Youtube Token : ', token);
 		let cookies = [];
 		cookies.push(
 			`token=${authToken}`,
@@ -47,11 +47,12 @@ router.get(
 			httpOnly: true,
 			// secure: process.env.NODE_ENV == 'production' ? true : false,
 		});
-		res.redirect(
-			process.env.NODE_ENV == 'development'
-				? process.env.SITE_URL + '/login/success'
-				: 'http://localhost:3000/login/success'
-		);
+
+		// res.redirect(
+		// 	process.env.NODE_ENV == 'development'
+		// 		? process.env.SITE_URL + '/login/success'
+		// 		: 'http://localhost:3000/login/success'
+		// );
 	}
 );
 
