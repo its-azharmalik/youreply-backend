@@ -48,11 +48,11 @@ router.get(
 			// secure: process.env.NODE_ENV == 'production' ? true : false,
 		});
 
-		// res.redirect(
-		// 	process.env.NODE_ENV == 'development'
-		// 		? process.env.SITE_URL + '/login/success'
-		// 		: 'http://localhost:3000/login/success'
-		// );
+		res.redirect(
+			process.env.NODE_ENV == 'development'
+				? process.env.SITE_URL + '/login/success'
+				: 'http://localhost:3000/login/success'
+		);
 	}
 );
 
